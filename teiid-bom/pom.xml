@@ -113,6 +113,11 @@
 				<artifactId>simmetrics-core</artifactId>
 				<version>${version.com.github.mpkorstanje}</version>
 			</dependency>
+			<dependency>
+                <groupId>com.github.stephenc.jcip</groupId>
+                <artifactId>jcip-annotations</artifactId>
+                <version>${version.jcip-annotations}</version>
+            </dependency>
             <dependency>
                 <groupId>com.google.api-client</groupId>
                 <artifactId>google-api-client</artifactId>
@@ -633,12 +638,11 @@
 				<version>${version.org.jboss.resteasy.tjws}</version>
 			</dependency>
 
-			<!-- Do not add mockito-all as it is uberjar! -->
 			<dependency>
 				<groupId>org.mockito</groupId>
-				<artifactId>mockito-all</artifactId>
-				<!--artifactId>mockito-core</artifactId -->
+				<artifactId>mockito-core</artifactId>
 				<version>${version.org.mockito}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.osgeo</groupId>

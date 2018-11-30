@@ -6,12 +6,11 @@
     -->
     <modelVersion>4.0.0</modelVersion>
     <parent>
-      <groupId>org.jboss</groupId>
-      <artifactId>jboss-parent</artifactId>
-      <version>29</version>
-      <relativePath />
-    </parent>  
-    
+      <groupId>org.basepom</groupId>
+      <artifactId>basepom-oss</artifactId>
+      <version>25</version>
+    </parent>
+        
 	<groupId>org.teiid</groupId>
 	<artifactId>project-bom-parent</artifactId>
 	<packaging>pom</packaging>
@@ -30,13 +29,15 @@
         <illegaltransitivereportonly>false</illegaltransitivereportonly>
             
 	    <jdk.min.version>1.8</jdk.min.version>
-      
-	    <maven.compiler.source>1.8</maven.compiler.source>
-	    <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceJdk>1.8</project.build.sourceJdk>
+	    <project.build.targetJdk>1.8</project.build.targetJdk>
+	    
+	    <dep.plugin.jar.version>3.1.0</dep.plugin.jar.version>
+	    <dep.plugin.surefire.version>2.22.0</dep.plugin.surefire.version>
+	    <!-- map to jboss parent properties -->
 
         <!-- Teiid Version -->
         <version.org.teiid>12.0.0-SNAPSHOT</version.org.teiid>
-
 
         <derby.version>10.2.1.6</derby.version>
 	    <mysql.connector.version>5.1.5</mysql.connector.version>
@@ -78,7 +79,8 @@
         <version.jta>1.1</version.jta>
         <version.jts>1.13</version.jts>
         <version.jts2geojson>0.8.0</version.jts2geojson>
-        <version.junit>4.12</version.junit>	   
+        <version.junit>4.12</version.junit>
+        <version.jcip-annotations>1.0-1</version.jcip-annotations>
         
         <version.olap4j>1.1.0</version.olap4j>
 
@@ -148,6 +150,18 @@
         <!-- OpenTracing -->
         <version.opentracing.concurrent>0.1.0</version.opentracing.concurrent>
         <version.opentracing>0.31.0</version.opentracing>
+        
+        <!-- Don't fork based on cores, doesn't work nicely in the cloud -->
+	    <basepom.test.fork-count>1</basepom.test.fork-count>
+	    <basepom.failsafe.fork-count>1</basepom.failsafe.fork-count>
+	    <basepom.failsafe.reuse-vm>true</basepom.failsafe.reuse-vm>
+	    <!-- takes a really long time -->
+	    <basepom.check.skip-dependency-versions-check>true</basepom.check.skip-dependency-versions-check>
+	    <basepom.it.memory>1024m</basepom.it.memory>
+	    
+	    <basepom.check.skip-checkstyle>true</basepom.check.skip-checkstyle>
+        <basepom.check.skip-license>true</basepom.check.skip-license>
+        <basepom.check.skip-findbugs>true</basepom.check.skip-findbugs>
 	</properties>
 	<scm>
         <connection>scm:git:git://github.com/teiid/project-integration-bom.git</connection>
@@ -313,5 +327,5 @@
       </plugin>
 
     </plugins>
-</build>
+  </build>
 </project>
