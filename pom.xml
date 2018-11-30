@@ -46,9 +46,6 @@
         <version.ant-contrib>1.0b3</version.ant-contrib>
         <version.aws-java-sdk>1.11.0</version.aws-java-sdk>
         	    
-        <!--  with wildfly parent version 2.5.4 the build is failing -->
-        <!--  <version.bundle.plugin>2.5.0</version.bundle.plugin> -->
-        
         <version.cassandra-driver-core>3.5.1</version.cassandra-driver-core>
         <version.com.couchbase.client>2.4.2</version.com.couchbase.client>
 	    <version.com.fasterxml.aalto-xml>0.9.10</version.com.fasterxml.aalto-xml>
@@ -80,6 +77,7 @@
         <version.jts>1.13</version.jts>
         <version.jts2geojson>0.8.0</version.jts2geojson>
         <version.junit>4.12</version.junit>
+        <version.hamcrest>1.3</version.hamcrest>
         <version.jcip-annotations>1.0-1</version.jcip-annotations>
         
         <version.olap4j>1.1.0</version.olap4j>
@@ -213,6 +211,12 @@
   <build>
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.8</version>
+        </plugin>
+        
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>gwt-maven-plugin</artifactId>
